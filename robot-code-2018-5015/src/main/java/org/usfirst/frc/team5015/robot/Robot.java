@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends TimedRobot {
 	
 	//SendableChooser<Auto_Mode> auto_selector = new SendableChooser<>();	
 	AnalogGyro drive_gyro = new AnalogGyro(0);
@@ -108,7 +108,7 @@ public class Robot extends IterativeRobot {
 			//Fast button on right trigger.
 			drive_system.setMaxSpeed(1.0);
 		}
-		else if(drive_stick.getRawButton(7)){
+		else if(drive_stick.getRawButton(6)){
 			//Slow button on right bumper.
 			drive_system.setMaxSpeed(0.5);
 		}
@@ -117,7 +117,7 @@ public class Robot extends IterativeRobot {
 			drive_system.setMaxSpeed(0.75);
 		}
 
-		drive_system.controlDrive(drive_stick.getRawAxis(1), drive_stick.getRawAxis(2)+0.2);
+		drive_system.controlDrive(drive_stick.getRawAxis(1), drive_stick.getRawAxis(4)+0.2);
 		
 		SmartDashboard.putNumber("Climb power", gunner_stick.getRawAxis(1));
 		elevatorSystem.driveElevator(gunner_stick.getRawAxis(1)*-1);
